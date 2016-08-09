@@ -11,7 +11,7 @@ var map = new mapboxgl.Map( {
 
 map.on( 'load', function() {
   map.addSource( "places", {
-    "type": "geojson",
+      "type": "geojson",
     "data": "data/convertcsv.geojson"
 
   } );
@@ -62,14 +62,14 @@ map.on( 'load', function() {
 
   map.on( 'click', function( e ) {
     var features = map.queryRenderedFeatures( e.point, {
-      layers: [ 'Yolocations' ]
+      layers: [ 'layerID' ]
     } );
-    var feature = features[ 0 ];
+    var feature = features[0];
 
     var popup = new mapboxgl.Popup( {
         anchor: 'top'
       } )
-      .setLngLat( feature.geometry.coordinates )
+      .setLngLat(feature.geometry.coordinates )
       .setHTML( '<h3>' + "Funding Program: " + feature.properties.FundProgram + '</h3>' +
         '<li>' + '<b>Organization name </b>' + feature.properties.Org_Name + '</li>' +
         '<li>' + '<b>City Served </b>' + feature.properties.City + '</li>' +
@@ -80,7 +80,7 @@ map.on( 'load', function() {
 
   map.on( 'mousemove', function( e ) {
     var features = map.queryRenderedFeatures( e.point, {
-      layers: [ 'locations', 'Yo-locations' ]
+      layers: [ 'layerID' ]
     } );
     map.getCanvas().style.cursor = ( features.length ) ? 'pointer' : '';
 
