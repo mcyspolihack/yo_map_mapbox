@@ -1,7 +1,7 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiYWxleGFjYTc5IiwiYSI6ImNpbzYyZGVlNzAyNjd2d2x6dHY1MnR6MjgifQ.anutU5yQ38NCFEMAM4Ubdw';
 
 var filterGroup = document.getElementById( 'filter-group' );
-var places = $.getJSON( 'https://raw.githubusercontent.com/mcyspolihack/yo_map_mapbox/master/data/convertcsv.geojson' )
+var places = $.getJSON( 'https://raw.githubusercontent.com/mcyspolihack/yo_map_mapbox/master/data/convertcsv.geojson' );
 var map = new mapboxgl.Map( {
   container: 'map', // container id
   style: 'mapbox://styles/mapbox/light-v8', //stylesheet location
@@ -36,14 +36,15 @@ map.on( 'load', function() {
   } );
 
   var uniqueLayers = $.unique( places.responseJSON.features.map( function( obj ) {
-    return obj.properties.FundProgram
-  } ) )
+    return obj.properties.FundProgram;
+  } ) );
+
 
   uniqueLayers.map( function( uniqLabel ) {
     // Add checkbox and label elements for the layer.
     var input = document.createElement( 'input' );
     input.type = 'checkbox';
-    var layerID = 'poi' + uniqLabel
+    var layerID = 'poi' + uniqLabel;
     input.id = layerID;
     input.checked = true;
     filterGroup.appendChild( input );
@@ -58,8 +59,6 @@ map.on( 'load', function() {
     label.textContent = uniqLabel;
     filterGroup.appendChild( label );
   } );
-
-
 
   map.on( 'click', function( e ) {
     var features = map.queryRenderedFeatures( e.point, {
@@ -76,8 +75,7 @@ map.on( 'load', function() {
         '<li>' + '<b>City Served </b>' + feature.properties.City + '</li>' +
         '<li>' + '<b>Funding Year </b>' + feature.properties.FY + '</li>'
       )
-      .addTo( map )
-
+      .addTo( map );
   } );
 
   map.on( 'mousemove', function( e ) {
