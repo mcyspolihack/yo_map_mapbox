@@ -1,7 +1,6 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiYWxleGFjYTc5IiwiYSI6ImNpbzYyZGVlNzAyNjd2d2x6dHY1MnR6MjgifQ.anutU5yQ38NCFEMAM4Ubdw';
 
 var filterGroup = document.getElementById( 'filter-group' );
-// var placesmeow = "data/convertcsv.geojson";
 var places = $.getJSON( 'https://raw.githubusercontent.com/mcyspolihack/yo_map_mapbox/master/data/convertcsv.geojson' )
 var map = new mapboxgl.Map( {
   container: 'map', // container id
@@ -32,29 +31,35 @@ map.on( 'load', function() {
           'visibility': 'visible'
         },
         "filter": [ "==", "FundProgram", symbol ]
-
       } );
-
     }
+  } );
 
+  var uniqueLayers = $.unique( places.responseJSON.features.map( function( obj ) {
+    return obj.properties.FundProgram
+  } ) )
+
+  uniqueLayers.map( function( uniqLabel ) {
     // Add checkbox and label elements for the layer.
     var input = document.createElement( 'input' );
     input.type = 'checkbox';
+    var layerID = 'poi' + uniqLabel
     input.id = layerID;
     input.checked = true;
     filterGroup.appendChild( input );
+    // When the checkbox changes, update the visibility of the layer.
+    input.addEventListener( 'change', function( e ) {
+      map.setLayoutProperty( layerID, 'visibility',
+        e.target.checked ? 'visible' : 'none' );
+    } );
 
     var label = document.createElement( 'label' );
     label.setAttribute( 'for', layerID );
-    label.textContent = symbol;
+    label.textContent = uniqLabel;
     filterGroup.appendChild( label );
   } );
 
-  // When the checkbox changes, update the visibility of the layer.
-  input.addEventListener( 'change', function( e ) {
-    map.setLayoutProperty( layerID, 'visibility',
-      e.target.checked ? 'visible' : 'none' );
-  } );
+
 
   map.on( 'click', function( e ) {
     var features = map.queryRenderedFeatures( e.point, {
