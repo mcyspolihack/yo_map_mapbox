@@ -107,6 +107,7 @@ map.on( 'load', function() {
 
           if (!features.length) {
               return;
+
           }
 
         var popup = new mapboxgl.Popup({
