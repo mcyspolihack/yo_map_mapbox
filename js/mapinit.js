@@ -10,6 +10,7 @@ var map = new mapboxgl.Map( {
   zoom: 14 // starting zoom
 } );
 
+
 map.on( 'load', function() {
   map.addSource( "places", {
       "type": "geojson",
@@ -37,28 +38,19 @@ map.on( 'load', function() {
         "filter": ["==", "FundProgram", symbol]
       });
 
-
-
-
       // Add checkbox and label elements for the layer.
       var input = document.createElement('input');
       input.type = 'checkbox';
       input.id = layerID;
       input.checked = true;
       filterGroup.appendChild(input);
+
       // When the checkbox changes, update the visibility of the layer.
-
-
       var label = document.createElement('label');
       label.setAttribute('for', layerID);
       label.textContent = symbol;
       filterGroup.appendChild(label);
 
-      input.addEventListener('change', function (e) {
-        map.setLayoutProperty(layerID, 'visibility',
-            e.target.checked ? 'visible' : 'none');
-
-      });
 
         var layers = [
             [150, '#f28cb1'],
@@ -75,7 +67,7 @@ map.on( 'load', function() {
                     "circle-color": layer[1],
                     "circle-radius": 18
                 },
-                "filter": i === 0 ?
+                "filter":  i === 0 ?
                     [">=", "point_count", layer[0]] :
                     ["all",
                         [">=", "point_count", layer[0]],
@@ -85,7 +77,7 @@ map.on( 'load', function() {
 
         // Add a layer for the clusters' count labels
         map.addLayer({
-            "id": "cluster-count",
+            "id": layerID + "ClusterCount",
             "type": "symbol",
             "source": "places",
             "layout": {
@@ -94,8 +86,15 @@ map.on( 'load', function() {
                     "DIN Offc Pro Medium",
                     "Arial Unicode MS Bold"
                 ],
-                "text-size": 12
+                "text-size": 12,
+
             }
+        });
+
+        input.addEventListener('change', function (e) {
+            map.setLayoutProperty(layerID, 'visibility',
+                e.target.checked ? 'visible' : 'none');
+
         });
 
 
