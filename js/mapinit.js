@@ -40,11 +40,13 @@ var layers = [
 map.on( 'load', function() {
   map.addSource( "places", {
       "type": "geojson",
-      "data": "data/convertcsv.geojson",
+      "data": "data/convertcsv.geojson"
+
+      /*,
       cluster: true,
       clusterMaxZoom: 14, // Max zoom to cluster points on
       clusterRadius: 50 // Radius of each cluster when clustering points (defaults to 50)
-  } );
+  */} );
 
     places.features.forEach( function( feature ) {
     var symbol = feature.properties[ 'FundProgram' ];
@@ -63,7 +65,6 @@ map.on( 'load', function() {
             'circle-radius': {
                 'base': 5,
                 'stops': [[7, 3], [12, 5]]
-
         },
             "circle-color": {
                 property: 'FundProgram',
@@ -78,23 +79,12 @@ map.on( 'load', function() {
                     ['AYIPI', '#F79646'],
                     ['SNAP', '#95B3D7'],
                     ['YOW', '#4BACC6']
-
-
-
-                ]
-
-            },
-
-
-
-
-
-        },
+                ]}},
         "filter": ["==", "FundProgram", symbol]
 
       });
 
-      layers.forEach(function (layer, i) {
+      /*layers.forEach(function (layer, i) {
             map.addLayer({
                 "id": layerID + i,
                 "type": "circle",
@@ -128,7 +118,7 @@ map.on( 'load', function() {
 
             }
 
-        });
+        });*/
 
       // Add checkbox and label elements for the layer.
       var input = document.createElement('input');
@@ -195,6 +185,8 @@ map.on( 'load', function() {
 
     });
     map.addControl(new mapboxgl.Geocoder());
+    map.addControl(new mapboxgl.Navigation());
+
 
 });
 
