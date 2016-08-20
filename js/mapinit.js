@@ -24,11 +24,19 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiYWxleGFjYTc5IiwiYSI6ImNpbzYyZGVlNzAyNjd2d2x6d
 var filterGroup = document.getElementById( 'filter-group' );
 var places ;
      $.getJSON("https://raw.githubusercontent.com/mcyspolihack/yo_map_mapbox/master/data/convertcsv.geojson", function(json){places=json});
+
+var bounds = [
+    [-56.280342 ,40.920051], // Southwest coordinates
+    [-116.308490, 58.711688]];  // Northeast coordinates
+
+
+
 var map = new mapboxgl.Map( {
   container: 'map', // container id
   style: 'mapbox://styles/mapbox/light-v8', //stylesheet location
   center: [ -79.38, 43.6532 ], // starting position
-  zoom: 14 // starting zoom
+  zoom: 14 , // starting zoom
+  maxBounds: bounds
 } );
 
 var layers = [
@@ -37,16 +45,18 @@ var layers = [
     [0, '#51bbd6']
 ];
 
+
+
 map.on( 'load', function() {
   map.addSource( "places", {
       "type": "geojson",
       "data": "data/convertcsv.geojson"
 
-      /*,
+      ,
       cluster: true,
       clusterMaxZoom: 14, // Max zoom to cluster points on
       clusterRadius: 50 // Radius of each cluster when clustering points (defaults to 50)
-  */} );
+  } );
 
     places.features.forEach( function( feature ) {
     var symbol = feature.properties[ 'FundProgram' ];
@@ -84,7 +94,7 @@ map.on( 'load', function() {
 
       });
 
-      /*layers.forEach(function (layer, i) {
+      layers.forEach(function (layer, i) {
             map.addLayer({
                 "id": layerID + i,
                 "type": "circle",
@@ -118,7 +128,7 @@ map.on( 'load', function() {
 
             }
 
-        });*/
+        });
 
       // Add checkbox and label elements for the layer.
       var input = document.createElement('input');
