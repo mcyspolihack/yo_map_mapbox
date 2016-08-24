@@ -23,7 +23,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiYWxleGFjYTc5IiwiYSI6ImNpbzYyZGVlNzAyNjd2d2x6d
 
 var filterGroup = document.getElementById( 'filter-group' );
 var places ;
-     $.getJSON("https://raw.githubusercontent.com/mcyspolihack/yo_map_mapbox/master/data/convertcsv.geojson", function(json){places=json});
+$.getJSON("https://raw.githubusercontent.com/mcyspolihack/yo_map_mapbox/master/data/convertcsv.geojson", function(json){places=json});
 
 var bounds = [
     [-56.280342 ,40.920051], // Southwest coordinates
@@ -32,11 +32,11 @@ var bounds = [
 
 
 var map = new mapboxgl.Map( {
-  container: 'map', // container id
-  style: 'mapbox://styles/mapbox/light-v8', //stylesheet location
-  center: [ -79.38, 43.6532 ], // starting position
-  zoom: 14 , // starting zoom
-  maxBounds: bounds
+    container: 'map', // container id
+    style: 'mapbox://styles/mapbox/light-v8', //stylesheet location
+    center: [ -79.38, 43.6532 ], // starting position
+    zoom: 14 , // starting zoom
+    maxBounds: bounds
 } );
 
 var layers = [
@@ -48,150 +48,184 @@ var layers = [
 
 
 map.on( 'load', function() {
-  map.addSource( "places", {
-      "type": "geojson",
-      "data": "data/convertcsv.geojson"
+    map.addSource( "places", {
+        "type": "geojson",
+        "data": "data/convertcsv.geojson"
 
-      ,
-      cluster: true,
-      clusterMaxZoom: 14, // Max zoom to cluster points on
-      clusterRadius: 50 // Radius of each cluster when clustering points (defaults to 50)
-  } );
+        ,
+        cluster: true,
+        clusterMaxZoom: 14, // Max zoom to cluster points on
+        clusterRadius: 50 // Radius of each cluster when clustering points (defaults to 50)
+    } );
+
+    map.addSource("cma", {
+        "type":"geojson",
+        "data":"data/CMA_Ontario.geojson"
+
+
+
+
+
+    });
+
+    map.addLayer({
+        "id":"cma",
+        "type": "fill",
+        "source":"cma",
+        "paint": {
+            'fill-opacity': 0.5,
+            'fill-outline-color': '#006378'
+    }
+
+
+});
+
+
 
     places.features.forEach( function( feature ) {
-    var symbol = feature.properties[ 'FundProgram' ];
-    var layerID = 'poi-' + symbol;
+        var symbol = feature.properties[ 'FundProgram' ];
+        var layerID = 'poi-' + symbol;
 
-    if ( !map.getLayer( layerID ) ) {
+        if ( !map.getLayer( layerID ) ) {
 
-      map.addLayer({
-        "id": layerID,
-        "type": "circle",
-        "source": "places",
-        "layout": {
-            'visibility': 'visible',
-        },
-        "paint": {
-            'circle-radius': {
-                'base': 5,
-                'stops': [[7, 3], [12, 5]]
-        },
-            "circle-color": {
-                property: 'FundProgram',
-                type: 'categorical',
-                stops:[
-                    ['YOF', '#fbb03b'],
-                    ['GPIP', '#4F81BD'],
-                    ['YMP', '#9BBB59'],
-                    ['RJCM', '#8064A2'],
-                    ['SAYIPI', '#F79646'],
-                    ['SYIPI', '#F79646'],
-                    ['AYIPI', '#F79646'],
-                    ['SNAP', '#95B3D7'],
-                    ['YOW', '#4BACC6']
-                ]}},
-        "filter": ["==", "FundProgram", symbol]
-
-      });
-
-      layers.forEach(function (layer, i) {
             map.addLayer({
-                "id": layerID + i,
+                "id": layerID,
                 "type": "circle",
                 "source": "places",
-                "paint": {
-                    "circle-color": layer[1],
-                    "circle-radius": 18
+                "layout": {
+                    'visibility': 'visible',
                 },
-                "filter": i === 0 ?
-                    [">=", "point_count", layer[0]] :
-                        ["all",
-                        [">=", "point_count", layer[0]],
-                        ["<", "point_count", layers[i - 1][0]]]
-            });
-        });
+                "paint": {
+                    'circle-radius': {
+                        'base': 5,
+                        'stops': [[7, 3], [12, 5]]
+                    },
+                    "circle-color": {
+                        property: 'FundProgram',
+                        type: 'categorical',
+                        stops:[
+                            ['YOF', '#fbb03b'],
+                            ['GPIP', '#4F81BD'],
+                            ['YMP', '#9BBB59'],
+                            ['RJCM', '#8064A2'],
+                            ['SAYIPI', '#F79646'],
+                            ['SYIPI', '#F79646'],
+                            ['AYIPI', '#F79646'],
+                            ['SNAP', '#95B3D7'],
+                            ['YOW', '#4BACC6']
+                        ]}},
+                "filter": ["==", "FundProgram", symbol]
 
-        // Add a layer for the clusters' count labels
-        map.addLayer({
-            "id": layerID + "cluster-count",
-            "type": "symbol",
-            "source": "places",
-            "layout": {
-                "text-field": "{point_count}",
-                "text-font": [
-                    "DIN Offc Pro Medium",
-                    "Arial Unicode MS Bold"
+            });
+
+            layers.forEach(function (layer, i) {
+                map.addLayer({
+                    "id": layerID + i,
+                    "type": "circle",
+                    "source": "places",
+                    "paint": {
+                        "circle-color": layer[1],
+                        "circle-radius": 18
+                    },
+                    "filter": i === 0 ?
+                        [">=", "point_count", layer[0]] :
+                        ["all",
+                            [">=", "point_count", layer[0]],
+                            ["<", "point_count", layers[i - 1][0]]]
+                });
+            });
+
+            // Add a layer for the clusters' count labels
+            map.addLayer({
+                "id": layerID + "cluster-count",
+                "type": "symbol",
+                "source": "places",
+                "layout": {
+                    "text-field": "{point_count}",
+                    "text-font": [
+                        "DIN Offc Pro Medium",
+                        "Arial Unicode MS Bold"
 
                     ],
-                "text-size": 12,
-                'visibility': 'visible'
+                    "text-size": 12,
+                    'visibility': 'visible'
 
-            }
+                }
 
-        });
-
-      // Add checkbox and label elements for the layer.
-      var input = document.createElement('input');
-      input.type = 'checkbox';
-      input.id = layerID;
-      input.checked = true;
-      filterGroup.appendChild(input);
-
-      // When the checkbox changes, update the visibility of the layer.
-
-      var label = document.createElement('label');
-      label.setAttribute('for', layerID);
-      label.textContent = symbol;
-      filterGroup.appendChild(label);
-
-      input.addEventListener('change', function (e) {
-        map.setLayoutProperty(layerID, 'visibility',
-            e.target.checked ? 'visible' : 'none');
-
-      });
+            });
 
 
+            map.addLayer({
+                "id":"cma",
+                "type": "fill",
+                "source":"cma",
+                "paint": {
+                    'fill-opacity': 0.5,
+                    'fill-outline-color': '#006378'
+                }});s
 
-      map.on('click', function (e) {
-        var features = map.queryRenderedFeatures(e.point, {
-          layers: [layerID]
-        });
-        var feature = features[0];
+            // Add checkbox and label elements for the layer.
+            var input = document.createElement('input');
+            input.type = 'checkbox';
+            input.id = layerID;
+            input.checked = true;
+            filterGroup.appendChild(input);
 
-          if (!features.length) {
-              return;
-          }
+            // When the checkbox changes, update the visibility of the layer.
 
-        var popup = new mapboxgl.Popup({
-          anchor: 'top'
-        })
-            .setLngLat(feature.geometry.coordinates)
-            .setHTML('<h3>' + "Funding Program: " + feature.properties.FundProgram + '</h3>' +
-                '<li>' + '<b>Organization Name: </b>' + feature.properties.Org_Name + '</li>' +
-                '<li>' + '<b>City Served: </b>' + feature.properties.City + '</li>' +
-                '<li>' + '<b>Funding Year: </b>' + feature.properties.FY + '</li>' +
-                '<li>' + '<b>Target Age: </b>' + feature.properties.Targ_Age + '</li>'
+            var label = document.createElement('label');
+            label.setAttribute('for', layerID);
+            label.textContent = symbol;
+            filterGroup.appendChild(label);
+
+            input.addEventListener('change', function (e) {
+                map.setLayoutProperty(layerID, 'visibility',
+                    e.target.checked ? 'visible' : 'none');
+
+            });
 
 
 
-            )
-            .addTo(map);
-      });
+            map.on('click', function (e) {
+                var features = map.queryRenderedFeatures(e.point, {
+                    layers: [layerID]
+                });
+                var feature = features[0];
+
+                if (!features.length) {
+                    return;
+                }
+
+                var popup = new mapboxgl.Popup({
+                    anchor: 'top'
+                })
+                    .setLngLat(feature.geometry.coordinates)
+                    .setHTML('<h3>' + "Funding Program: " + feature.properties.FundProgram + '</h3>' +
+                        '<li>' + '<b>Organization Name: </b>' + feature.properties.Org_Name + '</li>' +
+                        '<li>' + '<b>City Served: </b>' + feature.properties.City + '</li>' +
+                        '<li>' + '<b>Funding Year: </b>' + feature.properties.FY + '</li>' +
+                        '<li>' + '<b>Target Age: </b>' + feature.properties.Targ_Age + '</li>'
 
 
-      map.on('mousemove', function (e) {
-        var features = map.queryRenderedFeatures(e.point, {
-          layers: [layerID]
-        });
-          if (!features.length) {
-              return;
-          }
-        map.getCanvas().style.cursor = ( features.length ) ? 'pointer' : '';
 
-      });
+                    )
+                    .addTo(map);
+            });
 
 
-    }
+            map.on('mousemove', function (e) {
+                var features = map.queryRenderedFeatures(e.point, {
+                    layers: [layerID]
+                });
+                if (!features.length) {
+                    return;
+                }
+                map.getCanvas().style.cursor = ( features.length ) ? 'pointer' : '';
+
+            });
+
+
+        }
 
     });
     map.addControl(new mapboxgl.Geocoder());
