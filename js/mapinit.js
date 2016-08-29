@@ -57,7 +57,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiYWxleGFjYTc5IiwiYSI6ImNpbzYyZGVlNzAyNjd2d2x6d
 
 var filterGroup = document.getElementById( 'filter-group' );
 var places ;
-$.getJSON("https://raw.githubusercontent.com/mcyspolihack/yo_map_mapbox/gh-pages/data/convertcsv.geojson", function(json){places=json});
+$.getJSON("https://raw.githubusercontent.com/mcyspolihack/yo_map_mapbox/gh-pages/data/convertcsv1.geojson", function(json){places=json});
 
 var bounds = [
     [-56.280342 ,40.920051], // Southwest coordinates
@@ -84,10 +84,10 @@ var layers = [
 map.on( 'load', function() {
     map.addSource( "places", {
         "type": "geojson",
-        "data": "data/convertcsv.geojson"
+        "data": "data/convertcsv1.geojson"
 
         ,
-        cluster: true,
+        cluster: false,
         clusterMaxZoom: 14, // Max zoom to cluster points on
         clusterRadius: 50 // Radius of each cluster when clustering points (defaults to 50)
     } );
