@@ -333,6 +333,7 @@ a.splash-arrow:hover {
 @media screen and (max-height: 450px) {
     .sidenav {padding-top: 1vw;}
     .sidenav a {font-size: 1vw;}
+    .sidenav a {font-size: 1vw;}
 }
 
 
