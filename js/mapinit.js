@@ -115,7 +115,11 @@ map.on( 'load', function() {
         "source": "cma",
         "source-layer": "contour",
         "paint": {
-            'line-color': "#004658"}
+            'line-color': "#004658",
+
+
+
+        }
 
 
 

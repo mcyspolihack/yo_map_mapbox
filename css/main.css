@@ -276,7 +276,7 @@ a.splash-arrow:hover {
     z-index: 1; /* Stay on top */
     top: 0;
     left: 0;
-    background-color: #86A8AB; /* Black*/
+    background-color: #f1f1f1; /* Black*/
     overflow-x: hidden; /* Disable horizontal scroll */
     transition: 0.4s; /* 0.5 second transition effect to slide in the sidenav */
     padding-top: 8px; /* Place content 30px from the top */
@@ -331,8 +331,8 @@ a.splash-arrow:hover {
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
+    .sidenav {padding-top: 1vw;}
+    .sidenav a {font-size: 1vw;}
 }
 
 
