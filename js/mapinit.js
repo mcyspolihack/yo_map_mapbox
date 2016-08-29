@@ -57,7 +57,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiYWxleGFjYTc5IiwiYSI6ImNpbzYyZGVlNzAyNjd2d2x6d
 
 var filterGroup = document.getElementById( 'filter-group' );
 var places ;
-$.getJSON("https://raw.githubusercontent.com/mcyspolihack/yo_map_mapbox/master/data/convertcsv.geojson", function(json){places=json});
+$.getJSON("https://raw.githubusercontent.com/mcyspolihack/yo_map_mapbox/gh-pages/data/convertcsv.geojson", function(json){places=json});
 
 var bounds = [
     [-56.280342 ,40.920051], // Southwest coordinates
