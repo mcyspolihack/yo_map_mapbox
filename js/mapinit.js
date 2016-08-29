@@ -84,7 +84,7 @@ var layers = [
 map.on( 'load', function() {
     map.addSource( "places", {
         "type": "geojson",
-        "data": "data/convertcsv1.geojson"
+        "data": "data/convertcsv.geojson"
 
         ,
         cluster: true,
@@ -120,6 +120,7 @@ map.on( 'load', function() {
     });
 
 
+
     places.features.forEach( function( feature ) {
         var symbol = feature.properties[ 'FundProgram' ];
         var layerID = 'poi-' + symbol;
@@ -140,7 +141,18 @@ map.on( 'load', function() {
                     },
                     "circle-color": {
                         property: 'FundProgram',
-                        type: 'categorical'},
+                        type: 'categorical',
+                        stops:[
+                            ['YOF', '#fbb03b'],
+                            ['GPIP', '#4F81BD'],
+                            ['YMP', '#9BBB59'],
+                            ['RJCM', '#8064A2'],
+                            ['SAYIPI', '#F79646'],
+                            ['SYIPI', '#F79646'],
+                            ['AYIPI', '#F79646'],
+                            ['SNAP', '#95B3D7'],
+                            ['YOW', '#4BACC6']
+                        ]}},
                 "filter": ["==", "FundProgram", symbol]
 
             });
