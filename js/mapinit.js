@@ -143,7 +143,7 @@ map.on( 'load', function() {
                         property: 'FundProgram',
                         type: 'categorical',
                         stops:[
-                            ['YOF', '#fbb03b'],
+                            ['YOF', '#4bacc6'],
                             ['GPIP', '#4F81BD'],
                             ['YMP', '#9BBB59'],
                             ['RJCM', '#8064A2'],
@@ -151,7 +151,16 @@ map.on( 'load', function() {
                             ['SYIPI', '#F79646'],
                             ['AYIPI', '#F79646'],
                             ['SNAP', '#95B3D7'],
-                            ['YOW', '#4BACC6']
+                            ['YOW', '#4BACC6'],
+                            ['NYS', '#93CDDD'],
+                            ['UWCN', '#D99694'],
+                            ['YJFW', '#C3D69B'],
+                            ['YouthREX', '#E96646'],
+                            ['YCI','#EB1F2D']
+
+
+
+
                         ]}},
                 "filter": ["==", "FundProgram", symbol]
 
@@ -232,11 +241,11 @@ map.on( 'load', function() {
                     anchor: 'top'
                 })
                     .setLngLat(feature.geometry.coordinates)
-                    .setHTML('<h3>' + "Funding Program: " + feature.properties.FundProgram + '</h3>' +
+                    .setHTML('<h3>' + "Funding Program: " + feature.properties.Full_Name + " Program"+ '</h3>' +
                         '<li>' + '<b>Organization Name: </b>' + feature.properties.Org_Name + '</li>' +
-                        '<li>' + '<b>City Served: </b>' + feature.properties.City + '</li>' +
+                        '<li>' + '<b>Target Community: </b>' + feature.properties.Targ_Comm + '</li>' +
                         '<li>' + '<b>Funding Year: </b>' + feature.properties.FY + '</li>' +
-                        '<li>' + '<b>Target Age: </b>' + feature.properties.Targ_Age + '</li>'
+                        '<li>' + '<b>Program Description: </b>' + feature.properties.Proj_Desc + '</li>'
 
 
 
