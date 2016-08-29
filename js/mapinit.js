@@ -67,7 +67,7 @@ var bounds = [
 
 var map = new mapboxgl.Map( {
     container: 'map', // container id
-    style: 'mapbox://styles/mapbox/light-v8', //stylesheet location
+    style: 'mapbox://styles/alexaca79/cisgjw1ll002c2wo81b99btl8', //stylesheet location
     center: [ -79.38, 43.6532 ], // starting position
     zoom: 14 , // starting zoom
     maxBounds: bounds
@@ -106,14 +106,16 @@ map.on( 'load', function() {
         "paint": {
             'fill-color': "#ffffff",
             'fill-opacity': 0.2,
-            'fill-outline-color': '#006378'
+            'fill-outline-color': '#00919E'
         }});
 
         map.addLayer({
         "id": "terrain-data",
         "type": "line",
         "source": "cma",
-        "source-layer": "contour"
+        "source-layer": "contour",
+        "paint": {
+            'line-color': "#004658"}
 
 
 
