@@ -12,7 +12,7 @@ jQuery(document).ready(function(){
 
     console.debug(jQuery.cookie('visits'));
 
-    if ( jQuery.cookie('visits') > 1 ) {
+    if ( jQuery.cookie('visits') > 100 ) {
         jQuery('#active-popup').hide();
         jQuery('#popup-container').hide();
     } else {
