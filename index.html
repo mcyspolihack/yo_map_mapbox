@@ -10,29 +10,24 @@
     </head>
     <body>
     <nav id='filter-group' class='filter-group'></nav>
-    <body><
-    <div class="splash fade-in">
-        <h1 class="splash-title fade-in">Ontario's Profile of Youth Well Being </h1>
-        <h4>Stepping Up is the Government of Ontario’s framework to support the positive development of Ontario youth aged 12 to 25.It provides a platform for all those involved in supporting Ontario youth to come together, be informed by one clear vision and be inspired by a set of guiding principles, while working towards common goals.
 
-
-        </h4>
-        <a href="#" class="splash-arrow fade-in"><img src="img/down-arrow.png" alt="" /></a>
+    <div id="popup-container">
+        <a class="close">x</a>
+        <div id="popup-window">
+            <div class="splash-bg">
+                <a href="#" class="your-class"></a>
+                <h1> </h1>
+                <p>...</p>
+            </div>
+        </div>
     </div>
 
-    <div class="wrapper">
-
-    <div id='map'></div>
 
 
+        <div id="mySidenav" class="sidenav">
 
-
-    <pre id='features'></pre>
-
-
-        <div id='state-legend' class='legend'>
             <h3>Youth Opportunities Programs</h3>
-            <div><span style='background-color: #fbb03b'></span>Youth Opportunities Fund </div>
+            <p><div><span style='background-color: #fbb03b'></span>Youth Opportunities Fund </div>
             <div><span style='background-color: #4F81BD'></span>Gang Prevention and Intervention Program</div>
             <div><span style='background-color: #9BBB59'></span>Youth Mentorship Program</div>
             <div><span style='background-color: #8064A2'></span>Restorative Justice and Conflict Mediation Program</div>
@@ -40,9 +35,28 @@
             <div><span style='background-color: #F79646'></span>Summer Youth in Policing Initiative</div>
             <div><span style='background-color: #F79646'></span>After-School Youth in Policing Initiative</div>
             <div><span style='background-color: #95B3D7'></span>Stop Now and Plan Program</div>
-            <div><span style='background-color: #4BACC6'></span>Youth Outreach Worker Program</div>
-        </div>
+            <div><span style='background-color: #4BACC6'></span>Youth Outreach Worker Program</div></p>
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 
+            </div>
+
+    </div>
+
+    <!-- Use any element to open the sidenav -->
+
+    <div id="main">
+    <div id='map'></div>
+
+
+
+
+
+        <div id='state-legend' class='legend'>
+
+            <span onclick="openNav()">Legend</span>
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+        </div>
 
 
         <!---
@@ -57,9 +71,12 @@
     </div> <!-- END .wrapper -->
 
 
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.18.0/mapbox-gl.js'></script>
+
+
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.18.0/mapbox-gl.js'></script>
 <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v1.1.0/mapbox-gl-geocoder.js'></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
 <script src="//api.tiles.mapbox.com/mapbox.js/plugins/turf/v3.0.11/turf.min.js"></script>
 
 
@@ -68,5 +85,5 @@
 
 
 
-</body>
+</>
 </html>

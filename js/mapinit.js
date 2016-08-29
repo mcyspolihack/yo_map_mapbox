@@ -1,23 +1,57 @@
-$(document).ready(function() {
-    if($(".splash").is(":visible")) {
-        $(".wrapper").css({"opacity":"0"});
+/*Da Popup splashpage*/
+jQuery(document).ready(function(){
+    jQuery('#popup-container a.close').click(function(){
+        jQuery('#popup-container').fadeOut();
+        jQuery('#active-popup').fadeOut();
+    });
+
+    var visits = jQuery.cookie('visits') || 0;
+    visits++;
+
+    jQuery.cookie('visits', visits, { expires: 1, path: '/' });
+
+    console.debug(jQuery.cookie('visits'));
+
+    if ( jQuery.cookie('visits') > 1 ) {
+        jQuery('#active-popup').hide();
+        jQuery('#popup-container').hide();
+    } else {
+        var pageHeight = jQuery(document).height();
+        jQuery('<div id="active-popup"></div>').insertBefore('body');
+        jQuery('#active-popup').css("height", pageHeight);
+        jQuery('#popup-container').show();
     }
 
-    $(".splash-arrow").click(function() {
-        $(".splash").slideUp("800", function() {
-            $(".wrapper").delay(100).animate({"opacity":"1.0"},800);
-        });
-    });
+    if (jQuery.cookie('noShowWelcome')) { jQuery('#popup-container').hide(); jQuery('#active-popup').hide(); }
 });
 
-$(window).scroll(function() {
-    $(window).off("scroll");
-    $(".splash").slideUp("800", function() {
-        $("html, body").animate({"scrollTop":"0px"},100);
-        $(".wrapper").delay(100).animate({"opacity":"1.0"},800);
-    });
+jQuery(document).mouseup(function(e){
+    var container = jQuery('#popup-container');
+
+    if( !container.is(e.target)&& container.has(e.target).length === 0)
+    {
+        container.fadeOut();
+        jQuery('#active-popup').fadeOut();
+    }
+
 });
 
+
+/* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
+function openNav() {
+    document.getElementById("mySidenav").style.width = "20%";
+    document.getElementById("main").style.marginLeft = "20%";
+    document.getElementById("map").style.width = "80%";
+
+}
+
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft = "0";
+    document.getElementById("map").style.width = "100%";
+
+}
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiYWxleGFjYTc5IiwiYSI6ImNpbzYyZGVlNzAyNjd2d2x6dHY1MnR6MjgifQ.anutU5yQ38NCFEMAM4Ubdw';
 
@@ -62,23 +96,28 @@ map.on( 'load', function() {
         "type":"geojson",
         "data":"data/CMA_Ontario.geojson"
 
+    });
 
+
+    map.addLayer({
+        "id":"cma1",
+        "type": "fill",
+        "source":"cma",
+        "paint": {
+            'fill-color': "#ffffff",
+            'fill-opacity': 0.2,
+            'fill-outline-color': '#006378'
+        }});
+
+        map.addLayer({
+        "id": "terrain-data",
+        "type": "line",
+        "source": "cma",
+        "source-layer": "contour"
 
 
 
     });
-
-    map.addLayer({
-        "id":"cma",
-        "type": "fill",
-        "source":"cma",
-        "paint": {
-            'fill-opacity': 0.5,
-            'fill-outline-color': '#006378'
-    }
-
-
-});
 
 
 
@@ -93,7 +132,7 @@ map.on( 'load', function() {
                 "type": "circle",
                 "source": "places",
                 "layout": {
-                    'visibility': 'visible',
+                    'visibility': 'visible'
                 },
                 "paint": {
                     'circle-radius': {
@@ -155,14 +194,7 @@ map.on( 'load', function() {
             });
 
 
-            map.addLayer({
-                "id":"cma",
-                "type": "fill",
-                "source":"cma",
-                "paint": {
-                    'fill-opacity': 0.5,
-                    'fill-outline-color': '#006378'
-                }});s
+
 
             // Add checkbox and label elements for the layer.
             var input = document.createElement('input');
