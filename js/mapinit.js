@@ -99,15 +99,7 @@ map.on( 'load', function() {
     });
 
 
-    map.addLayer({
-        "id":"cma1",
-        "type": "fill",
-        "source":"cma",
-        "paint": {
-            'fill-color': "#ffffff",
-            'fill-opacity': 0.2,
-            'fill-outline-color': '#00919E'
-        }});
+
 
         map.addLayer({
         "id": "terrain-data",
@@ -115,7 +107,7 @@ map.on( 'load', function() {
         "source": "cma",
         "source-layer": "contour",
         "paint": {
-            'line-color': "#004658",
+            'line-color': "#004658"
 
 
 

@@ -397,3 +397,8 @@ a.splash-arrow:hover {
     cursor: pointer;
     color:#fff;
 }
+.mapboxgl-popup-content {
+    max-width:240px;
+
+
+}
