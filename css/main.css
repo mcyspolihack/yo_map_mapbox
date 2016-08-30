@@ -397,6 +397,8 @@ a.splash-arrow:hover {
     cursor: pointer;
     color:#fff;
 }
+
+/*mapbox popup overide*/
 .mapboxgl-popup-content {
     max-width:240px;
 
