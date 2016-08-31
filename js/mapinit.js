@@ -234,7 +234,7 @@ map.on( 'load', function() {
                         '<li>' + '<b>Target Community: </b>' + feature.properties.Targ_Comm + '</li>' +
                         '<li>' + '<b>Funding Year: </b>' + feature.properties.FY + '</li>' +
                         '<li>' + '<b>Program Description: </b>' + feature.properties.Proj_Desc + '</li>'+
-                        '<li>' + '<b>Website </b>'+ '<a target="_blank" href='+feature.properties.Website+'>' +  feature.properties.Website + '</li>'
+                        '<li>' + '<b>Website: </b>'+ '<a target="_blank" href='+feature.properties.Website+'>' +  feature.properties.Website + '</li>'
 
 
 
