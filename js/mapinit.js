@@ -36,7 +36,6 @@ jQuery(document).mouseup(function(e){
 
 });
 
-
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
 function openNav() {
     document.getElementById("mySidenav").style.width = "20%";
@@ -97,10 +96,6 @@ map.on( 'load', function() {
         "data":"data/CMA_Ontario.geojson"
 
     });
-
-
-
-
         map.addLayer({
         "id": "terrain-data",
         "type": "line",
@@ -109,13 +104,9 @@ map.on( 'load', function() {
         "paint": {
             'line-color': "#004658"
 
-
-
         }
 
     });
-
-
 
     places.features.forEach( function( feature ) {
         var symbol = feature.properties[ 'FundProgram' ];
@@ -152,7 +143,8 @@ map.on( 'load', function() {
                             ['UWCN', '#D99694'],
                             ['YJFW', '#C3D69B'],
                             ['YouthREX', '#E96646'],
-                            ['YCI','#EB1F2D']
+                            ['YCI','#EB1F2D'],
+                            ['CARA','#FD347A']
 
 
 
