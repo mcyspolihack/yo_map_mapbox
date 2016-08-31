@@ -58,19 +58,19 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiYWxleGFjYTc5IiwiYSI6ImNpbzYyZGVlNzAyNjd2d2x6d
 var filterGroup = document.getElementById( 'filter-group' );
 var places ;
 $.getJSON("https://raw.githubusercontent.com/mcyspolihack/yo_map_mapbox/master/data/convertcsv1alpha.geojson", function(json){places=json});
-
+/*
 var bounds = [
-    [-56.280342 ,40.920051], // Southwest coordinates
-    [-116.308490, 58.711688]];  // Northeast coordinates
+    [-57 ,41], // Southwest coordinates
+    [-117, 59.]];  // Northeast coordinates
 
-
+*/
 
 var map = new mapboxgl.Map( {
     container: 'map', // container id
     style: 'mapbox://styles/alexaca79/cisgjw1ll002c2wo81b99btl8', //stylesheet location
     center: [ -79.38, 43.6532 ], // starting position
-    zoom: 14 , // starting zoom
-    maxBounds: bounds
+    zoom: 14 /*, // starting zoom
+    maxBounds: bounds*/
 } );
 
 var layers = [
@@ -112,8 +112,6 @@ map.on( 'load', function() {
 
 
         }
-
-
 
     });
 
@@ -235,15 +233,16 @@ map.on( 'load', function() {
                     return;
                 }
 
-                var popup = new mapboxgl.Popup({
-                    anchor: 'top'
-                })
+                var popup = new mapboxgl.Popup(
+
+                )
                     .setLngLat(feature.geometry.coordinates)
                     .setHTML('<h3>' + "Funding Program: " + feature.properties.Full_Name + " Program"+ '</h3>' +
                         '<li>' + '<b>Organization Name: </b>' + feature.properties.Org_Name + '</li>' +
                         '<li>' + '<b>Target Community: </b>' + feature.properties.Targ_Comm + '</li>' +
                         '<li>' + '<b>Funding Year: </b>' + feature.properties.FY + '</li>' +
-                        '<li>' + '<b>Program Description: </b>' + feature.properties.Proj_Desc + '</li>'
+                        '<li>' + '<b>Program Description: </b>' + feature.properties.Proj_Desc + '</li>'+
+                        '<li>' + '<b>Website </b>'+ '<a target="_blank" href='+feature.properties.Website+'>' +  feature.properties.Website + '</li>'
 
 
 
