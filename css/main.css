@@ -412,7 +412,7 @@ a.splash-arrow:hover {
 
 /*mapbox popup overide*/
 .mapboxgl-popup-content {
-    max-width:240px;
+    max-width:300px;
 
 
 }
