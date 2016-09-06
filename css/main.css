@@ -1,5 +1,5 @@
 
-body { margin:0; padding:0;
+body { margin:0; padding:0px;
 
     font: normal .9vw/1.5vw 'Open Sans', sans-serif; color: #333; text-align: left;
 
@@ -323,6 +323,8 @@ a.splash-arrow:hover {
 
 }
 
+
+
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 #main {
     transition: margin-left .5s;
@@ -413,6 +415,8 @@ a.splash-arrow:hover {
 /*mapbox popup overide*/
 .mapboxgl-popup-content {
     max-width:300px;
+    font: normal .5vw/1vw 'Open Sans', sans-serif; text-align: left;
+
 
 
 }
