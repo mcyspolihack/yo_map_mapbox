@@ -9081,7 +9081,6 @@ var bounds = [
     [-117, 59.]];  // Northeast coordinates
 
 */
-
 var map = new mapboxgl.Map( {
     container: 'map', // container id
     style: 'mapbox://styles/alexaca79/cisgjw1ll002c2wo81b99btl8', //stylesheet location
