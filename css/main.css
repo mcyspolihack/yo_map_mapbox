@@ -1,11 +1,10 @@
 
 body { margin:0; padding:0px;
 
-    font: normal .9vw/1.5vw 'Open Sans', sans-serif; color: #333; text-align: left;
+    font: normal .9vw/1.5vw 'Helvetica Neue', sans-serif; color: #333; text-align: left;
 
 
 }
-
 
 img {
     max-width: 100%;
@@ -38,9 +37,9 @@ hr {
 a { color: #333; text-decoration: none; }
 a:hover { color: #b2c3e8; }
 
-h1 { font: bold 2.5vw 'Oswald', sans-serif; }
+h1 { font: bold 2.5vw 'Helvetica Neue', sans-serif; }
 
-h4 { font: bold 1vw 'Oswald', sans-serif;
+h4 { font: bold 1vw 'Helvetica Neue', sans-serif;
     color: white;
     text-shadow: 0 2px 10px #000;
     -webkit-animation-delay: 1s;
@@ -415,8 +414,8 @@ a.splash-arrow:hover {
 /*mapbox popup overide*/
 .mapboxgl-popup-content {
     max-width:300px;
-    font: normal .5vw/1vw 'Open Sans', sans-serif; text-align: left;
-
+    font: normal 10px 'Helvetica Neue', sans-serif; text-align: left;
+    word-wrap: break-word;
 
 
 }
