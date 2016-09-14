@@ -9141,7 +9141,7 @@ map.on( 'load', function() {
                 "paint": {
                     'circle-radius': {
                         'base': 5,
-                        'stops': [[7, 7], [12, 5]]
+                        'stops': [[5,3], [6, 6], [12, 6]]
                     },
                     "circle-color": {
                         property: 'FundProgram',
@@ -9246,7 +9246,7 @@ map.on( 'load', function() {
 
                 )
                     .setLngLat(feature.geometry.coordinates)
-                    .setHTML('<h3>' + "Funding Program: " + feature.properties.Full_Name + " Program"+ '</h3>' +
+                    .setHTML('<h3>'+ feature.properties.Full_Name + " Program"+ '</h3>' +
                         '<p>' + '<b>Organization Name: </b>' + feature.properties.Org_Name  +'<br>'+
                          '<b>Address: </b>' + feature.properties.Full_Address +'<br>'+
                          '<b>Website: </b>'+ '<a target="_blank" href='+feature.properties.Website+'>' +  feature.properties.Website + '</a>' +'<br>'+

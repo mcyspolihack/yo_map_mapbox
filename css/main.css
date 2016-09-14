@@ -70,19 +70,6 @@ footer {
     padding: 30px;
 }
 
-.splash {
-    background: url('../img/splash-bg.jpg') center center;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    min-height: 360px;
-    z-index: 999;
-    background-size: cover;
-    background-attachment: fixed;
-    text-align: center;
-}
 
 .splash-title {
     color: white;
@@ -360,7 +347,7 @@ a.splash-arrow:hover {
     z-index: 999;
     top: 0;
     display: none;
-    background: url('https://raw.githubusercontent.com/mcyspolihack/yo_map_mapbox/master/img/splash-bg.png') center center;
+    background: url("../img/splash-bg.svg") center center;
     text-align: left;
     padding-left: 5px;
 
@@ -369,7 +356,7 @@ a.splash-arrow:hover {
 .modal-content {
     position: relative;
     text-align: center;
-    background: url('https://raw.githubusercontent.com/mcyspolihack/yo_map_mapbox/master/img/splash-bg.png') center center;
+    background: url("../img/splash-bg.svg") center center;
 
 }
 
