@@ -49,6 +49,7 @@ h4 { font: bold 1vw 'Helvetica Neue', sans-serif;
 
 
 
+
 header {
     margin: 0 0 20px 0;
     padding: 20px;
@@ -406,3 +407,8 @@ a.splash-arrow:hover {
 
 
 }
+
+
+.accordion-toggle {cursor: pointer;}
+.accordion-content {display: none;}
+.accordion-content.default {display: block;}
