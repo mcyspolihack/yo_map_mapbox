@@ -348,7 +348,7 @@ a.splash-arrow:hover {
     z-index: 999;
     top: 0;
     display: none;
-    background: url("../img/splash-bg.svg") center center;
+    background: url("../img/splash-bg.png") center center;
     text-align: left;
     padding-left: 5px;
 
@@ -357,7 +357,7 @@ a.splash-arrow:hover {
 .modal-content {
     position: relative;
     text-align: center;
-    background: url("../img/splash-bg.svg") center center;
+    background: url("../img/splash-bg.png") center center;
 
 }
 
