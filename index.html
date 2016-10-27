@@ -1,165 +1,173 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset='utf-8' />
-        <title>Youth Service Inventory Map</title>
-        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-        <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.18.0/mapbox-gl.css' rel='stylesheet' />
-        <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v1.1.0/mapbox-gl-geocoder.css' type='text/css' />
-        <link rel="stylesheet" type="text/css" href="css/main.css">
-        <link rel="icon" type="image/x-icon" href="img/logo.png" />
-    </head>
-    <body>
-    <nav id='filter-group' class='filter-group'></nav>
+<head>
+    <meta charset='utf-8' />
+    <title>Youth Service Inventory Map</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.18.0/mapbox-gl.css' rel='stylesheet' />
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v1.1.0/mapbox-gl-geocoder.css' type='text/css' />
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="icon" type="image/x-icon" href="img/logo.png" />
+</head>
+<body>
+<nav id='filter-group' class='filter-group'></nav>
 
-    <div id="popup-container">
-        <a class="close">Close</a>
-        <div id="popup-window">
-            <div class="splash-bg">
-                <a href="#" class="your-class"></a>
-                <h1>Youth Strategies Branch <br> Youth Opportunities Atlas</h1>
-                <p></p>
-            </div>
+<div id="popup-container">
+    <a class="close">Close</a>
+    <div id="popup-window">
+        <div class="splash-bg">
+            <a href="#" class="your-class"></a>
+            <h1>Youth Strategies Branch <br> Youth Opportunities Atlas</h1>
+
+            <p>
+
+                Through this plan, we aim to foster safer communities and give young people the support and opportunities they need to succeed. The plan benefits 65,000 at-risk youth each year and builds upon the research and recommendations in the Review of the Roots of Youth Violence report.
+
+                We are continuing to work with all levels of government, community partners and Ontario's youth to break down barriers for young people. We are also providing the necessary supports, services and opportunities they need to succeed.
+                <br>
+                <br>
+                <br>
+
+                <a href="http://www.children.gov.on.ca/htdocs/English/professionals/oyap/index.aspx" target="_blank">Click Here for More Information</a>
+            </p>
         </div>
     </div>
+</div>
 
 
+<div id="mySidenav" class="sidenav">
+    <div id="accordion">
 
-        <div id="mySidenav" class="sidenav">
-            <div id="accordion">
-
-            <h3 >Legend</h3>
-            <p>
+        <h3 >Legend</h3>
+        <p>
             <div><h5 class="accordion-toggle"><span style='background-color: #F79646'></span>AYIPI SAYIPI SYIPI- Youth in Policing Initiative</h5>
                 <div class="accordion-content"> <p> The Youth in Policing Initiative Afterschool program was created in recognition of the importance of providing support and employment opportunities for young people all year round.
-                This employment initiative focuses on diverse youth between the ages of 15 and 18 years, who reside in our priority identified neighbourhoods within the City of Toronto.
-                The aim of the Youth in Policing Initiative is to promote youth participation in and exposure to the work environment through diverse, educational, and productive work assignments.
-                This program also enhances the link between the police and the neighbourhoods we serve. This initiative gives young people an opportunity to develop job skill</p> </div></div>
-            <div><h5 class="accordion-toggle"><span style='background-color: #FD347A'></span>CARA - Community Aboriginal Recreation Activation</h5>
-                <div class="accordion-content"> <p>
+        This employment initiative focuses on diverse youth between the ages of 15 and 18 years, who reside in our priority identified neighbourhoods within the City of Toronto.
+        The aim of the Youth in Policing Initiative is to promote youth participation in and exposure to the work environment through diverse, educational, and productive work assignments.
+        This program also enhances the link between the police and the neighbourhoods we serve. This initiative gives young people an opportunity to develop job skill</p> </div></div>
+<div><h5 class="accordion-toggle"><span style='background-color: #FD347A'></span>CARA - Community Aboriginal Recreation Activation</h5>
+    <div class="accordion-content"> <p>
 
-                    A program built on past successes in addressing quality of life for First Nations youth using sport and recreation to encourage for social change
-                </p> </div></div>
-            <!---<div><h5 class="accordion-toggle"><span style='background-color: #ffffff'></span>FOY - Focus on Youth Program</h5>
-                <div class="accordion-content"> <p>meowmeowmeow </p> </div></div> -->
+        A program built on past successes in addressing quality of life for First Nations youth using sport and recreation to encourage for social change
+    </p> </div></div>
+<!---<div><h5 class="accordion-toggle"><span style='background-color: #ffffff'></span>FOY - Focus on Youth Program</h5>
+    <div class="accordion-content"> <p>meowmeowmeow </p> </div></div> -->
 
-            <div><h5 class="accordion-toggle"><span style='background-color: #4F81BD'></span>GIPI - Gang Prevention and Intervention Program</h5>
-                    <div class="accordion-content"> <p>
+<div><h5 class="accordion-toggle"><span style='background-color: #4F81BD'></span>GIPI - Gang Prevention and Intervention Program</h5>
+    <div class="accordion-content"> <p>
 
-                        This program provides prevention and intervention programming to support youth between the ages of 12-20 who are gang involved or at risk of gang involvement and help build their pro-social skills.
+        This program provides prevention and intervention programming to support youth between the ages of 12-20 who are gang involved or at risk of gang involvement and help build their pro-social skills.
 
-                    </p> </div></div>
+    </p> </div></div>
 
-            <div><h5 class="accordion-toggle"><span style='background-color: #93CDDD'></span>NYS - Newcomer Youth Settlement Program</h5>
-                    <div class="accordion-content"> <p> The Newcomer Youth Settlement Program creates and provides opportunities where inclusion,
-                        respect, responsibility, honesty and caring are the norm for all. Newcomer youth, between 13-29
-                        years old, are invited to join this new program, providing youth with a vision for a better future,
-                        motivates them to realize lasting positive change in their lives, and help them become valued and
-                        productive members of the community.
-                    </p> </div></div>
+<div><h5 class="accordion-toggle"><span style='background-color: #93CDDD'></span>NYS - Newcomer Youth Settlement Program</h5>
+    <div class="accordion-content"> <p> The Newcomer Youth Settlement Program creates and provides opportunities where inclusion,
+        respect, responsibility, honesty and caring are the norm for all. Newcomer youth, between 13-29
+        years old, are invited to join this new program, providing youth with a vision for a better future,
+        motivates them to realize lasting positive change in their lives, and help them become valued and
+        productive members of the community.
+    </p> </div></div>
 
-            <div><h5 class="accordion-toggle"><span style='background-color: #8064A2'></span>RJCM - Restorative Justice and Conflict Mediation Program</h5>
-                    <div class="accordion-content"> <p>
+<div><h5 class="accordion-toggle"><span style='background-color: #8064A2'></span>RJCM - Restorative Justice and Conflict Mediation Program</h5>
+    <div class="accordion-content"> <p>
 
-                        A new program that will utilize restorative justice approaches and peer mediation within a school or community setting to address conflict / violence. Youth will be able to take accountability for their behaviour, to strengthen pro-social skills and to access community services and supports as needed, through partnerships with school(s), community agencies and police.
-                        Evidence: Research shows that restorative justice approaches implemented in schools have resulted in reduced rates of youth dropping out of school, truancy and disciplinary actions.  In addition, peer mediation has been shown to be an effective conflict resolution method which also promotes pro-social behaviour and youth engagement.
-
-
-                    </p> </div></div>
-            <div><h5 class="accordion-toggle"><span style='background-color: #95B3D7'></span>SNAP - Stop Now and Plan Program</h5>
-                    <div class="accordion-content"> <p>
-
-                        A family-focused, early intervention program children 6-12 who are engaging in aggressive, antisocial behaviour and / or have come into contact with the police. The program aims to prevent antisocial behaviour and increase pro-social behaviour, reducing the chance of future conflict with the justice system through timely and effective early intervention. SNAP has been found to reduce aggression / delinquency / antisocial behavior in middle years children, improve academic success by decreasing behavioral issues at school, and increase the connection of children and parents to community-based resources.
-
-                    </p> </div></div>
-            <div><h5 class="accordion-toggle"><span style='background-color: #D99694'></span>United Way Career Navigator Program</h5>
-                    <div class="accordion-content"> <p> United Way Toronto & York Region created Career Navigator™ specifically for young people who have the hardest time to find work—those facing multiple barriers including, but not limited to, poverty, discrimination, settlement issues, family breakdown, and low educational attainment.
-
-                        CareerNavigator™ is an education-to-employment pipeline that combines industry recognized training and social supports to help youth secure credentials and experiences needed for in-demand jobs.</p> </div></div>
-            <div><h5 class="accordion-toggle"><span style='background-color: #EB1F2D'></span>YCI - Youth Collective Impact Program</h5>
-                    <div class="accordion-content"> <p>
-
-                        Youth CI is a new program that helps organizations in local communities across Ontario learn about Collective Impact and enable them to develop, launch and implement collaborations that address major challenges and directly improve outcomes for youth in their community.
-
-                        Youth CI is delivered by the J.W. McConnell Family Foundation’s Innoweave initiative in partnership with the Laidlaw Foundation, and supported by the Government of Ontario.
-
-                        Youth CI offers information and engagement sessions, workshops, coaching and funding to current and potential collaboratives in Ontario.
-
-                    </p> </div></div>
-            <div><h5 class="accordion-toggle"><span style='background-color: #C3D69B'></span>YJFY - Youth Justice Family Worker</h5>
-                    <div class="accordion-content"> <p>
-
-                        A program expansion working with youth in conflict with the law  and their families to support rehabilitation and help avoid re-offending.
-                        Evidence: Youth are not involved in youth justice in isolation of other factors in their lives. Research shows the benefits of working with families to understand how dynamics reinforce positive / negative behaviour, understand problems in a new way and develop healthy, supportive relationships. Family workers provide a holistic view in identifying strengths, resiliency factors and areas that may require additional support.
-                        Implementation: Contracts have been signed with all agencies selected to deliver the Youth Justice Family Worker Program.  Youth and their families can be referred to the program by; probation officers, schools, police, crowns and or funded service providers.
-
-                    </p> </div></div>
-            <div><h5 class="accordion-toggle"><span style='background-color: #9BBB59'></span>YMP - Youth Mentorship Program</h5>
-                    <div class="accordion-content"> <p>
-                        The Youth Mentorship Program helps support locally-developed adult/elder-to-youth mentoring activities with a focus on high-risk youth aged 12-25 in target communities across the province.  Mentorship programs will focus on at least one of three outcome areas: Employment and Entrepreneurship, Educational Achievement, and Civic Engagement / Leadership
-                        Tbe objective is to  support the positive development of high-risk youth through access to consistent, caring adults who will support youth to achieve goals in the three outcome areas. Participants will be better supported to:
-                        Make healthy and safe choices;
-                        Increase resiliency; and Make progress toward identified goals.
-
-                    </p> </div></div>
-            <div><h5 class="accordion-toggle"><span style='background-color: #4bacc6'></span>YOF - Youth Opportunities Fund</a></h5>
-                   <div class="accordion-content"> <p>
-                       The Youth Opportunities Fund (YOF) is an annual program that provides grants and capacity building supports to youth-led grassroots groups and community-based organizations serving young people who face multiple barriers to economic and social wellbeing.
+        A new program that will utilize restorative justice approaches and peer mediation within a school or community setting to address conflict / violence. Youth will be able to take accountability for their behaviour, to strengthen pro-social skills and to access community services and supports as needed, through partnerships with school(s), community agencies and police.
+        Evidence: Research shows that restorative justice approaches implemented in schools have resulted in reduced rates of youth dropping out of school, truancy and disciplinary actions.  In addition, peer mediation has been shown to be an effective conflict resolution method which also promotes pro-social behaviour and youth engagement.
 
 
-                   </p> </div></div>
+    </p> </div></div>
+<div><h5 class="accordion-toggle"><span style='background-color: #95B3D7'></span>SNAP - Stop Now and Plan Program</h5>
+    <div class="accordion-content"> <p>
 
-            <div><h5 class="accordion-toggle"><span style='background-color: #E96646'></span>YouthREX - Youth Research and Evaluation Exchange</h5>
-                    <div class="accordion-content"> <p> meowmeowmeow</p> </div></div>
+        A family-focused, early intervention program children 6-12 who are engaging in aggressive, antisocial behaviour and / or have come into contact with the police. The program aims to prevent antisocial behaviour and increase pro-social behaviour, reducing the chance of future conflict with the justice system through timely and effective early intervention. SNAP has been found to reduce aggression / delinquency / antisocial behavior in middle years children, improve academic success by decreasing behavioral issues at school, and increase the connection of children and parents to community-based resources.
 
-            <div><h5 class="accordion-toggle"><span style='background-color: #4BACC6'></span>YOW -Youth Outreach Worker Program</h5>
+    </p> </div></div>
+<div><h5 class="accordion-toggle"><span style='background-color: #D99694'></span>United Way Career Navigator Program</h5>
+    <div class="accordion-content"> <p> United Way Toronto & York Region created Career Navigator™ specifically for young people who have the hardest time to find work—those facing multiple barriers including, but not limited to, poverty, discrimination, settlement issues, family breakdown, and low educational attainment.
 
-                      <div class="accordion-content"> <p>
+        CareerNavigator™ is an education-to-employment pipeline that combines industry recognized training and social supports to help youth secure credentials and experiences needed for in-demand jobs.</p> </div></div>
+<div><h5 class="accordion-toggle"><span style='background-color: #EB1F2D'></span>YCI - Youth Collective Impact Program</h5>
+    <div class="accordion-content"> <p>
 
-                          The Youth Outreach Worker Program is a comprehensive multi-agency outreach initiative for marginalized youth in underserved neighbourhoods, and special populations in East Toronto.  The Youth Outreach Worker (YOW) engages youth ages 12-21 years old and their families, helps them better navigate and connect with services and supports in their communities.  As of April 2013 the program has been enhanced to serve Aboriginal, Tamil, Afghan, African Canadian, Chinese, Roma, LGBTQ youth, and to target youth through Social Media.
+        <a href="http://www.youthci.ca/">Youth CI,</a> a partnership with the Laidlaw Foundation and the J.W. McConnell Family Foundation’s Innoweave Initiative, helps youth-serving organizations in local communities across Ontario. The program develops, launches and implements collaborations that helps youth to succeed. Youth CI offers information and engagement sessions, workshops, coaching and funding to current and potential collaborations in Ontario.</p>
+
+        </p> </div></div>
+<div><h5 class="accordion-toggle"><span style='background-color: #C3D69B'></span>YJFY - Youth Justice Family Worker</h5>
+    <div class="accordion-content"> <p>
+
+        A program expansion working with youth in conflict with the law  and their families to support rehabilitation and help avoid re-offending.
+        Evidence: Youth are not involved in youth justice in isolation of other factors in their lives. Research shows the benefits of working with families to understand how dynamics reinforce positive / negative behaviour, understand problems in a new way and develop healthy, supportive relationships. Family workers provide a holistic view in identifying strengths, resiliency factors and areas that may require additional support.
+        Implementation: Contracts have been signed with all agencies selected to deliver the Youth Justice Family Worker Program.  Youth and their families can be referred to the program by; probation officers, schools, police, crowns and or funded service providers.
+
+    </p> </div></div>
+<div><h5 class="accordion-toggle"><span style='background-color: #9BBB59'></span>YMP - Youth Mentorship Program</h5>
+    <div class="accordion-content"> <p>
+        The Youth Mentorship Program helps support locally-developed adult/elder-to-youth mentoring activities with a focus on high-risk youth aged 12-25 in target communities across the province.  Mentorship programs will focus on at least one of three outcome areas: Employment and Entrepreneurship, Educational Achievement, and Civic Engagement / Leadership
+        Tbe objective is to  support the positive development of high-risk youth through access to consistent, caring adults who will support youth to achieve goals in the three outcome areas. Participants will be better supported to:
+        Make healthy and safe choices;
+        Increase resiliency; and Make progress toward identified goals.
+
+    </p> </div></div>
+<div><h5 class="accordion-toggle"><span style='background-color: #4bacc6'></span>YOF - Youth Opportunities Fund</a></h5>
+    <div class="accordion-content"> <p>
+        The Youth Opportunities Fund (YOF) is an annual program that provides grants and capacity building supports to youth-led grassroots groups and community-based organizations serving young people who face multiple barriers to economic and social wellbeing.
 
 
-                      </p> </div></div>
+    </p> </div></div>
+
+<div><h5 class="accordion-toggle"><span style='background-color: #E96646'></span>YouthREX - Youth Research and Evaluation Exchange</h5>
+    <div class="accordion-content"> <p>
+
+        The<a href="http://youthrex.com/">Youth Research &amp; Evaluation eXchange (YouthREX)</a>, in partnership with York University, provides knowledge mobilization and capacity building services to youth-led organizations across Ontario. It also provides customized evaluation supports to grassroots organizations and initiatives. YouthREX has <a href="http://youthrex.com/regional-hubs/">five regional hubs</a> to engage local youth serving organizations, including in London, Ottawa, Sudbury, Thunder Bay and Toronto.</p> </div></div>
+
+<div><h5 class="accordion-toggle"><span style='background-color: #4BACC6'></span>YOW -Youth Outreach Worker Program</h5>
+
+    <div class="accordion-content"> <p>
+
+        The Youth Outreach Worker Program is a comprehensive multi-agency outreach initiative for marginalized youth in underserved neighbourhoods, and special populations in East Toronto.  The Youth Outreach Worker (YOW) engages youth ages 12-21 years old and their families, helps them better navigate and connect with services and supports in their communities.  As of April 2013 the program has been enhanced to serve Aboriginal, Tamil, Afghan, African Canadian, Chinese, Roma, LGBTQ youth, and to target youth through Social Media.
+
+
+    </p> </div></div>
 
 
 
-
-            <h3 class="accordion-toggle" >Target Population Codes </h3>
-                <div class="accordion-content">
-            <p>
-             DY : Youth at-risk of dropping out or have dropped out of school<br>
-             FY : Francophone youth<br>
-             GIY : Gang-involved youth or youth at risk for gang involvement<br>
-             HIY : At-risk / high-risk youth engaged in conflict / violence in a school setting<br>
-             HL : Homeless youth<br>
-             IY : Indigenous youth (FNMI youth)<br>
-             LGBY : LGBTTQ youth<br>
-             NETY : Youth not in education, employment or training<br>
-             NY : Newcomer youth<br>
-             RY : Racialized youth<br>
-             YCL : Youth in conflict with the law<br>
-             YDIS : Youth with disabilities or special needs<br>
-             YILC : Youth in and leaving care<br>
-             YM : Youth with lived experience of a mental health problem or mental illness<br>
-             YP : Youth living in low income or in poverty<br>
-             YRR : Youth living in rural and remote communities </p>
-                </div>
+<h3 class="accordion-toggle" >Target Population Codes </h3>
+<div class="accordion-content">
+    <p>
+        DY : Youth at-risk of dropping out or have dropped out of school<br>
+        FY : Francophone youth<br>
+        GIY : Gang-involved youth or youth at risk for gang involvement<br>
+        HIY : At-risk / high-risk youth engaged in conflict / violence in a school setting<br>
+        HL : Homeless youth<br>
+        IY : Indigenous youth (FNMI youth)<br>
+        LGBY : LGBTTQ youth<br>
+        NETY : Youth not in education, employment or training<br>
+        NY : Newcomer youth<br>
+        RY : Racialized youth<br>
+        YCL : Youth in conflict with the law<br>
+        YDIS : Youth with disabilities or special needs<br>
+        YILC : Youth in and leaving care<br>
+        YM : Youth with lived experience of a mental health problem or mental illness<br>
+        YP : Youth living in low income or in poverty<br>
+        YRR : Youth living in rural and remote communities </p>
+</div>
 
 
 
 
 
-            </p>
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+</p>
+<a href="javascript:void(0)" class="closebtn" onclick="openNav()">&times;</a>
 
-            </div>
+</div>
 
-    </div>
+</div>
 
-    <!-- Use any element to open the sidenav -->
+<!-- Use any element to open the sidenav -->
 
-    <div id="main">
+<div id="main">
     <div id='map'>
+
 
 
 
@@ -167,24 +175,26 @@
 
         <div id='state-legend' class='legend'>
 
-            <span onclick="openNav()">Program Information</span>
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="#" onclick="openNav()">Program Information</a>
+            <br><br>
+
+
+
+
 
         </div>
 
     </div>
-        <!---
-            <div id='sidebar'>
-                <h1></h1>
-                <h2></h2>
-                <div id="tooltip-name"></div>
-                <div id='tooltip'></div>
-            </div>
+    <!---
+        <div id='sidebar'>
+            <h1></h1>
+            <h2></h2>
+            <div id="tooltip-name"></div>
+            <div id='tooltip'></div>
+        </div>
 
-                -->
-    </div> <!-- END .wrapper -->
-
-
+            -->
+</div> <!-- END .wrapper -->
 
 
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.18.0/mapbox-gl.js'></script>
@@ -194,7 +204,8 @@
 <script src="//api.tiles.mapbox.com/mapbox.js/plugins/turf/v3.0.11/turf.min.js"></script>
 
 
-    <script src='js/mapinit.js'></script>
+<script src='js/mapinit.js'></script>
+<script src='js/jqueryfuntions.js'> </script>
 
 
 
