@@ -1,6 +1,6 @@
 #PoliHack Product - Youth Opportunities Webmap
 
-#Goal: To make a web platform to communicate and disseminate knowledge of the Youth Opportunities Programs in Ontario
+###Goal: To make a web platform to communicate and disseminate knowledge of the Youth Opportunities Programs in Ontario
 
 
 SteppingUp: A Strategic Framework to Help Ontario’s Youth Succeed is Ontario’s overall, whole-of-government strategy for improving outcomes for youth aged 12-25.
