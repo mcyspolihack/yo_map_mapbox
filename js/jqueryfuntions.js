@@ -51,18 +51,22 @@ jQuery(document).mouseup(function(e){
 
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
 function openNav() {
-    document.getElementById("mySidenav").style.width = "25%";
-    document.getElementById("main").style.marginLeft = "25%";
-    document.getElementById("map").style.width = "75%";
+    console.log(document.getElementById("mySidenav").style.width);
+    if(document.getElementById("mySidenav").style.width == "0px" || document.getElementById("mySidenav").style.width == "")
+    {
+        document.getElementById("mySidenav").style.width = "25%";
+        document.getElementById("main").style.marginLeft = "25%";
+        document.getElementById("map").style.width = "75%";
+    }
+    else{
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+        document.getElementById("map").style.width = "100%";
+    }
 
 }
 
-/* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
-function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-    document.getElementById("main").style.marginLeft = "0";
-    document.getElementById("map").style.width = "100%";
 
-}
+
 
 
