@@ -64,6 +64,7 @@ function openNav() {
         document.getElementById("map").style.width = "100%";
     }
 
+
 }
 
 
