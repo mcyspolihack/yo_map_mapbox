@@ -1,4 +1,6 @@
-
+/*Data loads twice once in the var places" to generate the layer selection part on the right side
+Second loaded the points on the map
+ */
 
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiYWxleGFjYTc5IiwiYSI6ImNpbzYyZGVlNzAyNjd2d2x6dHY1MnR6MjgifQ.anutU5yQ38NCFEMAM4Ubdw';
@@ -9023,8 +9025,9 @@ var places = {
             }
         }
     ]
-} ;
+} ; // The YO point data
 /*
+// set map bounds to lock map to only view Ontario
 var bounds = [
     [-57 ,41], // Southwest coordinates
     [-117, 59.]];  // Northeast coordinates
@@ -9047,17 +9050,17 @@ var layers = [
 
 
 map.on( 'load', function() {
-    map.addSource( "places", {
+    map.addSource( "places", { //
         "type": "geojson",
         "data": "data/convertcsv1alpha.geojson"
 
         ,
-        cluster: false,
+        cluster: false, // keep false - clustering doesnt work for our purposes
         clusterMaxZoom: 14, // Max zoom to cluster points on
         clusterRadius: 50 // Radius of each cluster when clustering points (defaults to 50)
     } );
 
-    map.addSource("cma", {
+    map.addSource("cma", {// load CMA data layer
         "type":"geojson",
         "data":"data/CMA_Ontario.geojson"
 
@@ -9190,7 +9193,7 @@ map.on( 'load', function() {
                 if (!features.length) {
                     return;
                 }
-
+                // the Var is called Popup. it runs the pop up
                 var popup = new mapboxgl.Popup(
 
                 )
@@ -9212,7 +9215,7 @@ map.on( 'load', function() {
                     .addTo(map);
             });
 
-
+            //
             map.on('mousemove', function (e) {
                 var features = map.queryRenderedFeatures(e.point, {
                     layers: [layerID]
@@ -9228,8 +9231,8 @@ map.on( 'load', function() {
         }
 
     });
-    map.addControl(new mapboxgl.Geocoder());
-    map.addControl(new mapboxgl.Navigation());
+    map.addControl(new mapboxgl.Geocoder()); // adds geocoder
+    map.addControl(new mapboxgl.Navigation()); // Display map navigation controls
 
 
 });

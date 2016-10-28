@@ -10,9 +10,10 @@ jQuery(document).ready(function(){
 
     jQuery.cookie('visits', visits, { expires: 1, path: '/' });
 
+    // pop up timer
     console.debug(jQuery.cookie('visits'));
 
-    if ( jQuery.cookie('visits') > 100 ) {
+    if ( jQuery.cookie('visits') > 3 ) {
         jQuery('#active-popup').hide();
         jQuery('#popup-container').hide();
     } else {
@@ -24,7 +25,7 @@ jQuery(document).ready(function(){
 
     if (jQuery.cookie('noShowWelcome')) { jQuery('#popup-container').hide(); jQuery('#active-popup').hide(); }
 });
-/*Accordian*/
+/*Accordian in the side bar */
 
 $(document).ready(function($) {
     $('#accordion').find('.accordion-toggle').click(function(){
@@ -49,7 +50,7 @@ jQuery(document).mouseup(function(e){
 
 });
 
-/* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
+/* open and close sidebar funtion */
 function openNav() {
     console.log(document.getElementById("mySidenav").style.width);
     if(document.getElementById("mySidenav").style.width == "0px" || document.getElementById("mySidenav").style.width == "")
